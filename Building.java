@@ -1,22 +1,22 @@
-package kmutt.sit.int105;
+package building;
 public class Building {
     private String buildingName;
     private Room[] buildingRoom;
-    
-    public Building(String name){
-       // buildingRoom = new Room[10];
-       this(name,10);
+
+    public Building(String name) {
+        /*buildingName = name;
+        buildingRoom = new Room[10];*/
+        this(name,10);
     }
 
-
-    public Building(String name, int numOfRoom) {
+    public Building(String name,int numOfRoom) {
         buildingName = name;
         buildingRoom = new Room[numOfRoom];
-        buildingRoom();
+        buildRoom();
     }
     
-    public void buildingRoom(){
-        for(int i=0;i<buildingRoom.length;i++){
+    public void buildRoom(){
+        for (int i=0;i<buildingRoom.length;i++){
             buildingRoom[i] = new Room("SIT-"+(i+1));
         }
     }
@@ -39,30 +39,34 @@ public class Building {
 
     @Override
     public String toString() {
-        //return "Building{" + "buildingName=" + buildingName + ", buildingRoom=" + buildingRoom + '}';
-        String result = "Building Name : "+buildingName+"\n";
-        for(Room r:buildingRoom){
+        String result = "Building Name: " +buildingName+"\n";
+        for(Room r: buildingRoom){
             result+=r+"\n";
         }
         return result;
+        //return "Building{" + "buildingName=" + buildingName + ", buildingRoom=" + buildingRoom + '}';
     }
-    public boolean equals(Object obj){
-        boolean result=false;
-        if(obj !=null && obj instanceof Building){
-            Building buildName = (Building)obj;
-            if(buildingName.equals(buildName.buildingName)){
-                if(buildingRoom.length == buildName.buildingRoom.length){
-                    for(int i=0;i<buildingRoom.length;i++){
-                    if(buildingRoom[i].getRoomName().equals(buildName.buildingRoom[i].getRoomName())){
-                        result = true;
-                    }else result = false;
+    
+    public boolean equals(Object obj) {
+        boolean result = false;
+        if (obj != null && obj instanceof Building) {
+            Building bd = (Building)obj;
+            if (buildingName.equals(bd.buildingName)) {
+                if(this.buildingRoom.length==bd.buildingRoom.length){
+                    for (int i=0;i<buildingRoom.length;i++){
+                        if(this.buildingRoom[i].equals(bd.buildingRoom[i]))
+                            return true;
+                        else
+                            break;
+                    }
                 }
-            }else result = false;
-           }          
+            }
         }
         return result;
     }
+   
 }
+    
     
     
 
