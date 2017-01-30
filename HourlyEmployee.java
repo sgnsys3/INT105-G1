@@ -1,0 +1,42 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package int105.person;
+
+/**
+ *
+ * @author INT105
+ */
+public class HourlyEmployee extends Employee {
+
+    private double ratePerHour;
+
+    public HourlyEmployee() {
+
+       
+    }
+
+    public double getRatePerHour() {
+        return ratePerHour;
+    }
+
+    public void setRatePerHour(double ratePerHour) {
+        this.ratePerHour = ratePerHour;
+    }
+
+    
+    public HourlyEmployee(long id, String n, String sn, double sal, String pos, double rate) {
+        super(id, n, sn, sal, pos);
+        this.ratePerHour = rate;
+    }
+
+    @Override
+    public String toString() {
+        
+        return super.toString()+"HourlyEmployee{" + "ratePerHour=" + ratePerHour + '}'+"\n";
+    }
+    
+
+}
