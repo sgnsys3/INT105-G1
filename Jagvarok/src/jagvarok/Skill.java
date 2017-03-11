@@ -23,6 +23,31 @@ public class Skill {
         this.damage = damage;
     }
 
+    public int getJob() {
+        return job;
+    }
+
+    public void setJob(int job) {
+        this.job = job;
+    }
+
+    public String[] getName() {
+        return name;
+    }
+
+    public void setName(String[] name) {
+        this.name = name;
+    }
+
+    public int getDamage(int i) {
+        return damage[i];
+    }
+
+    public void setDamage(int[] damage) {
+        this.damage = damage;
+    }
+
+    
     @Override
     public String toString() {
         String resultName="";

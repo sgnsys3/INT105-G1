@@ -102,10 +102,13 @@ abstract class Character {
         }
         return nameType;
     }
+    
     @Override
     public String toString() {
-        return "Character Info\n" + "Name : " + name + "\nLevel : " + level + "\nHP : " + Hp + "\nType : " + convertType(characterType) + "\nJob : " + convertJob(job);
+        return "Character Info\n" + "Name : " + this.name + "\nLevel : " + level + "\nHP : " + this.Hp + "\nType : " + convertType(characterType) + "\nJob : " + convertJob(job);
     }
+
+    public abstract void attack(Character character,int i);
     
     
 }

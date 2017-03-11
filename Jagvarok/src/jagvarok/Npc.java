@@ -20,5 +20,12 @@ public class Npc extends Character {
         this.typeNpc = typeNpc;
     }
     
+    public void attack(Character character,int i){
+        if(character instanceof Character){
+            character.setHp(character.getHp()-99999999);
+        }
+        else System.out.println("Please attack on Monster");
+    }
+
     
 }
