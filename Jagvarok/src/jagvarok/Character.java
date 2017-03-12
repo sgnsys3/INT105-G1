@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package jagvarok;
 
 /**
@@ -10,13 +5,14 @@ package jagvarok;
  * @author Imagine
  */
 abstract class Character {
-    private String name;
-    private int level;
+    private String name; // ชื่อตัวละคร
+    private int level; // level ตัวละคร
     private int Hp; // Hit Point
     private int characterType; // 0 NPC , 1 Player , 2 Monster , 3 Boss
     private int job; // 0 Novice , 1 Archer , 2 Swordman , 3 Mage
-    private int exp;
+    private int exp; // ระบบ exp สำหรับ uplevel ตัวละคร
 
+    /* Constructor */
     public Character() {
     }
 
@@ -28,7 +24,13 @@ abstract class Character {
         this.job = job;
         this.exp = exp;
     }
+    /* end Constructor */
 
+    /* attack เป็น abstract character ทุกชนิด มีการโจมตี 
+    โดยจะรับ object character ที่จะโจมตี และสกิลที่จะใช้ */
+    public abstract void attack(Character character,int i);
+    
+    /* setter / getter */
     public String getName() {
         return name;
     }
@@ -77,11 +79,22 @@ abstract class Character {
         this.exp = exp;
     }
     
+    /* end setter / getter */
     
-
+    
+    /* แปลงเลขอาชีพเป็น String */
     public String convertJob(int job){
+        /* โดยสร้างตัวแปร String 1 ตัวเพื่อคอยเก็บค่า
+        เมื่อ ชนิดเข้า case ไหน ก็จะแปลงค่าในตัวแปร String
+        เป็นค่านั้น และ return ค่าออกไปเป็น String */
         String nameJob="";
         switch(job){
+            /* ในที่นี้ให้ 
+            0 = Novice
+            1 = Archer
+            2 = Swordman
+            3 = Mage
+            อื่นๆ คือ Unknown */
             case(0):nameJob="Novice";break;
             case(1):nameJob="Archer";break;
             case(2):nameJob="Swordman";break;
@@ -91,9 +104,19 @@ abstract class Character {
         return nameJob;
     }
     
+    /* แปลงเลข ชนิด character เป็น String */
     public String convertType(int type){
+        /* โดยสร้างตัวแปร String 1 ตัวเพื่อคอยเก็บค่า
+        เมื่อ ชนิดเข้า case ไหน ก็จะแปลงค่าในตัวแปร String
+        เป็นค่านั้น และ return ค่าออกไปเป็น String */
         String nameType="";
         switch(type){
+            /* ในที่นี้ให้ 
+            0 = NPC
+            1 = Player
+            2 = Monster
+            3 = Boss    
+            อื่นๆ คือ Unknown */
             case(0):nameType="NPC";break;
             case(1):nameType="Player";break;
             case(2):nameType="Monster";break;
@@ -103,12 +126,13 @@ abstract class Character {
         return nameType;
     }
     
+    /* to String */
     @Override
     public String toString() {
-        return "Character Info\n" + "Name : " + this.name + "\nLevel : " + level + "\nHP : " + this.Hp + "\nType : " + convertType(characterType) + "\nJob : " + convertJob(job);
+        return "Character Info\n" + "Name : " + this.name + "\nLevel : " + 
+                level + "\nHP : " + this.Hp + "\nType : " + 
+                convertType(characterType) + "\nJob : " + convertJob(job);
     }
-
-    public abstract void attack(Character character,int i);
-    
     
 }
+    
