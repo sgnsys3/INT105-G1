@@ -9,6 +9,7 @@ public class Monster extends Character {
     private int Hp; // Hit Point
     private String name; // ชื่อของ Monster
     private int characterType; // // 0 NPC , 1 Player , 2 Monster , 3 Boss
+    private int exp; // exp เฉพาะ ของ Monster เพื่อนำไปเพิ่ม level Player
     
     /* Constructor */
     public Monster() {
@@ -17,9 +18,11 @@ public class Monster extends Character {
     public Monster(String name, int level, int Hp, int characterType, int exp, Skill skillSet) {
         super(name, level, Hp, characterType, -1, 20);
         this.characterType=characterType;
-        if(this.characterType!=2){
-            this.characterType=2;
+        if(this.characterType==3){
+            this.characterType=3;
         }
+        else this.characterType=2;
+        this.exp=exp;
         this.name = name;
         this.Hp = Hp;
         this.skillSet = skillSet;
@@ -45,6 +48,23 @@ public class Monster extends Character {
             this.Hp=0;
         }
     }
+
+    public int getExp() {
+        return exp;
+    }
+
+    public void setExp(int exp) {
+        this.exp = exp;
+    }
+
+    public int getCharacterType() {
+        return characterType;
+    }
+
+    public void setCharacterType(int characterType) {
+        this.characterType = characterType;
+    }
+    
     /* end setter / getter */
     
     public void attack(Character Player,int i){
@@ -57,12 +77,26 @@ public class Monster extends Character {
                 System.out.println("\n<<<<<<"+this.name+" Attack>>>>>>\n");
                 Player.setHp(Player.getHp()-this.skillSet.getDamage(i));
                 if(Player.getHp()==0){
-                    System.out.println(this.name+" died.\n");
+                    System.out.println(Player.getName() + " died.\n");
+                    /* เรียกใช้ Method ลด EXP */
+                    decreaseExp(Player);
                 }
             }
         }
+    }    
+    
+    /* Overriding จาก Character.java 
+    แต่ไม่อนุญาติให้ Monster เปลี่ยนคลาส */
+    public void changeClass(){
+        System.out.println("Monster can't Change Class");
     }
-
+    
+    /* Method ลด EXP โดยจะลดเมื่อ Player 
+    ตาย โดย Monster โดยจะลด 10% จาก EXP ที่มีอยู่ */
+    public void decreaseExp(Character Player){
+        int exp = Player.getExp();
+        Player.setExp((int)(exp-(exp*0.1)));
+    }
     
     /* toString */
     @Override

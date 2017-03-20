@@ -75,6 +75,12 @@ public class Npc extends Character {
         else System.out.println("\n@@@@Attack on Monste Only@@@@\n");
     }
 
+    /* Method ที่ Overriding มา 
+    ซึ่ง NPC ไม่สามารถเปลี่ยนคลาสได้ */
+    public void changeClass(){
+        System.out.println("NPC can't Change Class");
+    }
+    
     /* toString */
     /* มีการเรียกใช้ convertType() เพื่อแสดงชนิดว่าเป็น Npc ในรูป String
     โดยเป็น convertType ที่สืบทอดมาจาก Character */

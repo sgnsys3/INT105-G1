@@ -34,75 +34,41 @@ abstract class Character {
     public String getName() {
         return name;
     }
-
     public void setName(String name) {
         this.name = name;
     }
-
     public int getLevel() {
         return level;
     }
-
     public void setLevel(int level) {
         this.level = level;
     }
-
     public int getHp() {
         return Hp;
     }
-
     public void setHp(int Hp) {
         this.Hp = Hp;
     }
-
     public int getCharacterType() {
         return characterType;
     }
-
     public void setCharacterType(int characterType) {
         this.characterType = characterType;
     }
-
     public int getJob() {
         return job;
     }
-
     public void setJob(int job) {
         this.job = job;
     }
-
     public int getExp() {
         return exp;
     }
-
     public void setExp(int exp) {
         this.exp = exp;
-    }
-    
+    }   
     /* end setter / getter */
     
-    
-    /* แปลงเลขอาชีพเป็น String */
-    public String convertJob(int job){
-        /* โดยสร้างตัวแปร String 1 ตัวเพื่อคอยเก็บค่า
-        เมื่อ ชนิดเข้า case ไหน ก็จะแปลงค่าในตัวแปร String
-        เป็นค่านั้น และ return ค่าออกไปเป็น String */
-        String nameJob="";
-        switch(job){
-            /* ในที่นี้ให้ 
-            0 = Novice
-            1 = Archer
-            2 = Swordman
-            3 = Mage
-            อื่นๆ คือ Unknown */
-            case(0):nameJob="Novice";break;
-            case(1):nameJob="Archer";break;
-            case(2):nameJob="Swordman";break;
-            case(3):nameJob="Mage";break;
-            default:nameJob="Unknown";break;
-        }
-        return nameJob;
-    }
     
     /* แปลงเลข ชนิด character เป็น String */
     public String convertType(int type){
@@ -125,14 +91,17 @@ abstract class Character {
         }
         return nameType;
     }
+    /* Method ใหม่ สร้างเพื่อให้คลาส 
+    Player สามารถอัพคลาส2ได้ */
+    public abstract void changeClass();
     
     /* to String */
     @Override
     public String toString() {
         return "Character Info\n" + "Name : " + this.name + "\nLevel : " + 
-                level + "\nHP : " + this.Hp + "\nType : " + 
-                convertType(characterType) + "\nJob : " + convertJob(job);
+                level + "\nHP : " + this.Hp  +"\nType : " +
+                convertType(characterType);
     }
-    
+
 }
     

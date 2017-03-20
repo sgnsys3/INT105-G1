@@ -16,74 +16,43 @@ public class TestJagvarok {
         String name[] = {"Shoot","Super Shot","Ultimate Arrow"};
         int damage[] = {10,100,500};
         Skill archer = new Skill(name,damage);
-        
-        String name2[] = {"Slash","Blowing Bash","Ultimate Sword"};
-        int damage2[] = {30,70,500};
-        Skill swordman = new Skill(name2,damage2);
-        
-        String monsterSkill[] = {"Stomp","Super Poring"};
-        int damageMon[] = {10,99999};
-        Skill poring  = new Skill(monsterSkill,damageMon);
+        String bossSkill[] = {"Stomp","Super Poring"};
+        int damageBoss[] = {2500,10000};
+        Skill behemot  = new Skill(bossSkill,damageBoss);
         
         /* สร้าง object Player , NPC , Monster */
         /* Player นี้ อาชีพ Archer จากที่ set ค่าไว้ */
         /* Status Player
-         * Name : Prayood
-         * Level : 1
-         * HP : 100
-         * Type : Player
-         * Job : Archer
+         * Name : Prayood ,Level : 1, HP : 100
+         * Type : Player ,Job : Archer
          * Skill :  Name , Shoot , Super Shot , Ultimate Arrow 
 	 * Damage  , 10 , 100 , 500 */
         Character Player1 = new Player("Prayood",1,100,1,1,0,archer);
          // Constuctor = name , lvl , Hp , characterType , job , exp , Skillset
-         
-        /* NPC */
-        /* Status NPC 
-         * Name : Alpaka
-         * Level : 99
-         * HP : 1000 */
-        Character Npc = new Npc("Alpaka",1,90,1,1);
         
         /* Monster */
-        /*Status Monster 
+        /* Status Monster 
          * Name : Poring
          * HP : 100
          * Skill :  Name , Stomp , Super Poring 
 	 * Damage  , 10 , 99999 */
-        Character Monster = new Monster("Poring",2,100,1,10,poring);
+        Character Boss = new Monster("Behemot",10,100,3,500,behemot);
         
         /* แสดง ข้อมูลของ Character ต่างๆ */
         System.out.println(Player1);
-        System.out.println(Monster);
-        System.out.println(Npc);
+        System.out.println(Boss);
         
-        /* สั่งให้ monster โจมตี Player 1 ด้วยสกิล 1 (ช่องสกิล 0) */
-        Monster.attack(Player1, 0);
+        /* วนลูปให้ Player เก็บเลเวลเพื่อ 
+        เทส คลาสและฉายา */
+        for (int i = 0; i < 25; i++) {
+            Player1.attack(Boss, 2);
+        }
+        /* ทดสอบ เปลี่ยนคลาส 2 */
+        Player1.changeClass();
         
-        /* แสดง สเตตัส ปัจจุบัน ของ character */
+        /* แสดงการเปลี่ยนคลาส */
         System.out.println(Player1);
-        System.out.println(Monster);
-        
-        /* สั่งให้ Player โจมตี Monster ด้วยสกิล 1 (ช่องสกิล 0 )*/
-        Player1.attack(Monster, 0);
-        /* ทดสอบ ให้ Player ทำร้ายตัวเอง */
-        Player1.attack(Player1, 0);
-        
-        /* แสดง สเตตัส ล่าสุด */
-        System.out.println(Player1);
-        System.out.println(Monster);
-        
-        /* Monster โจมตี Player ดว้ยดาเมจ 99999*/
-        Monster.attack(Player1, 1);
-        /* Player ตายแล้ว */
-        
-        /* แสดง สเตตัส ล่าสุด */
-        System.out.println(Player1);
-        System.out.println(Monster);
-        
-        /* ทดสอบ Player ตายแล้ว โจมตีไม่ได้ */
-        Player1.attack(Monster, 2);
+        System.out.println(Boss);
     }
     
 }
