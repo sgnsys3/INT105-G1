@@ -1,0 +1,51 @@
+public class Admin {
+    
+    DecimalFormat dmf = new DecimalFormat("000000");
+    public  long count ; 
+    private static long number = 0;
+  //  private String date; 
+    private String problem;
+    private String type;
+    private String status;
+
+    
+    public Admin() {
+    
+        count++;
+        number += count;
+    }
+    
+    
+
+    public Admin(String problem, String type) {
+     
+        
+        this.problem = problem;
+        this.type = type;
+        status = "รอการตรวจสอบ";
+        count++;
+        number += count;
+       
+    
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+
+
+    
+    @Override
+    public String toString() {
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/M/yyyy");
+        String date = sdf.format(new Date());
+        return "Admin{" + "number=" + dmf.format(number) + ", date=" + date + ", problem=" + problem + ", type=" + type + ", status=" + status + '}';
+    }
+
+   
+}
