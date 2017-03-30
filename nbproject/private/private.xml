@@ -1,13 +1,27 @@
+<<<<<<< HEAD
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/INT105/G1/InheritanceProject/src/int105/person/HourlyEmployee.java</file>
-            <file>file:/C:/INT105/G1/InheritanceProject/src/int105/person/TestPerson.java</file>
-            <file>file:/C:/INT105/G1/InheritanceProject/src/int105/student/Student.java</file>
-            <file>file:/C:/INT105/G1/InheritanceProject/src/int105/person/Person.java</file>
-            <file>file:/C:/INT105/G1/InheritanceProject/src/int105/person/Employee.java</file>
+            <file>file:/C:/Users/hp/Desktop/gib/IT/ปี1%20เทอม2/INT105%20java/Project/E-way-project/src/Eway/view/Booking23.java</file>
         </group>
     </open-files>
 </project-private>
+=======
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/Users/Rei/Documents/NetBeansProjects/E-way-project/src/Eway/view/BookingTime24.java</file>
+            <file>file:/C:/Users/Rei/Documents/NetBeansProjects/E-way-project/src/Eway/model/ConnectionBuilder.java</file>
+            <file>file:/C:/Users/Rei/Documents/NetBeansProjects/E-way-project/src/Eway/model/Person.java</file>
+            <file>file:/C:/Users/Rei/Documents/NetBeansProjects/E-way-project/src/Eway/model/Booking.java</file>
+            <file>file:/C:/Users/Rei/Documents/NetBeansProjects/E-way-project/src/Eway/view/BookingTime23.java</file>
+            <file>file:/C:/Users/Rei/Documents/NetBeansProjects/E-way-project/src/Eway/view/BookingTime01.java</file>
+            <file>file:/C:/Users/Rei/Documents/NetBeansProjects/E-way-project/src/Eway/view/Login6.java</file>
+        </group>
+    </open-files>
+</project-private>
+>>>>>>> origin/master
