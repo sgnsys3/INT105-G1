@@ -9,6 +9,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import javax.swing.JOptionPane;
 
 /**
@@ -16,6 +17,7 @@ import javax.swing.JOptionPane;
  * @author ASUS
  */
 public class Person {
+    private int personId;
     private String StuName;
     private String Falculty;
     private String BranchOf;
@@ -27,12 +29,14 @@ public class Person {
         
     }
     public static void getPerson(ResultSet rs,Person p)throws SQLException{
-        p.setStuName(rs.getString("StudentName"));
-        p.setFalculty(rs.getString("Falculty"));
-        p.setBranchOf(rs.getString("BranchOf"));
-        p.setEMAIL(rs.getString("EMAIL"));
-        p.setPassword(rs.getString("password"));
-        p.setTel(rs.getString("tel"));
+     
+        p.setPersonId(rs.getInt("Person_Id"));
+        p.setStuName(rs.getString("Person_Name"));
+        p.setPassword(rs.getString("Person_Password"));
+        p.setTel(rs.getString("Person_Telephone"));
+        
+        
+        
     }
     public static Person findById(long id){
         Person p = null;
@@ -77,8 +81,16 @@ public class Person {
     public String getTel() {
         return Tel;
     }
-    
 
+    public void setPersonId(int personId) {
+        this.personId = personId;
+    }
+
+    public int getPersonId() {
+        return personId;
+    }
+    
+    
     public void setStuName(String StuName) {
         this.StuName = StuName;
     }
@@ -113,13 +125,13 @@ public class Person {
         return "StudentName: " + StuName +"Falcult: " + Falculty +"\n"+ "BranchOf :" + BranchOf +"\n"+"EMAIL :"+ EMAIL+"\n"+"password :"+Password+"\n"+"tel :"+Tel ;
     }
     
-    public static Person login(String stdId,String pass){//เปลี่ยนใน login return เป็น person 
+    public static Person login(String perId,String pass){//เปลี่ยนใน login return เป็น person 
             Person one=new Person();
             String sql="SELECT * FROM Person WHERE Person_ID=? AND Person_PASSWORD=?";
             Connection con=ConnectionBuilder.getConnection();
             try{
                 PreparedStatement ps=con.prepareStatement(sql);
-                ps.setString(1,stdId);
+                ps.setString(1,perId);
                 ps.setString(2,pass);
                 ResultSet rs=ps.executeQuery();
                if(rs.next()){
@@ -143,4 +155,17 @@ public class Person {
             return one;
    }
     
+   /*public void getId(){
+       Connection con=ConnectionBuilder.getConnection();
+       try{
+           Statement s=con.createStatement();
+           ResultSet rs=s.executeQuery("select * from person");
+           rs.last();
+           this.personId=rs.getInt(1);
+           con.close();
+           
+       }catch(SQLException e){
+           System.out.println(e);
+       }
+   }*/ //เก็บไว้เผื่อใช้ในภายหลังนะครับ
 }
